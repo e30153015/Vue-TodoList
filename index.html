@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Vue-TodoList</title>
+    <title>Document</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
 
@@ -11,47 +11,44 @@
 
 <body>
 
-    <div class="container col-sm-8 col-sm-offset-2">
+    <div class="container col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-8 col-xs-offset-2">
         <div id="app">
             <!-- Add new task form-->
             <div class="panel">
                 <h2 class="text-center">Vue TodoList</h2>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-8">
-                            <input class="form-control" type="text" v-model="newTodo" @keyup.enter='addTodo(newTodo)' />
-                        </div>
-                        <div class="col-sm-3">
-                            <button class="btn btn-primary btn-block" @click='addTodo(newTodo)'>Add</button>
-                        </div>
-                        <div class="col-sm-1">
-                            <a href='#' class="glyphicon glyphicon-trash" @click.prevent='removeAll()'></a>
-                        </div>
+                <div class="row">
+                    <div class="col-md-8 col-sm-8 col-xs-8">
+                        <input class="form-control" type="text" v-model="newTodo" @keyup.enter='addTodo(newTodo)' />
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-xs-3">
+                        <button class="btn btn-primary btn-block" @click='addTodo(newTodo)'>Add</button>
+                    </div>
+                    <div class="col-md-1 col-sm-1 col-xs-1">
+                        <a href='#' class="glyphicon glyphicon-trash" @click.prevent='removeAll()'></a>
                     </div>
                 </div>
             </div>
             <div class="panel">
                 <div class="row header">
-                    <div class='col-sm-2 text-center'></div>
-                    <div class='col-sm-8 text-center'>
+                    <div class='col-md-6 col-md-offset-2 col-sm-6 col-sm-offset-2 col-xs-6 col-xs-offset-2 text-center'>
                         <h3><b>任務列表</b></h3>
                     </div>
-                    <div class='col-sm-2 text-center'>
+                    <div class='col-md-3 col-sm-3 col-xs-3 text-center'>
                         <h3><b>Delete</b></h3>
                     </div>
                 </div>
 
                 <div class="row contain" v-for="(todo,index) in todos">
-                    <div class="col-sm-2 text-center">
+                    <div class="col-md-3 col-xs-3 col-sm-3 text-center">
                         <input type="checkbox" v-model="todo.done" />
                     </div>
-                    <div class="col-sm-6 col-sm-offset-2">
+                    <div class="col-md-5 col-xs-5 col-sm-5">
                         <h4 v-show="!todo.edit" class="text" v-on:dblclick="todo.edit=true" v-bind:class="{doneText :todo.done}">
                             {{todo.item}}
                         </h4>
                         <input v-show="todo.edit" v-on:keyup.enter="todo.edit=false" class="edit_content" type="text" v-model="todo.item">
                     </div>
-                    <div class="col-sm-2 text-center">
+                    <div class="col-md-4 col-xs-4 col-sm-4 text-center">
                         <button class='glyphicon glyphicon-pencil btn btn-success' v-bind:disabled='todo.done' @click='change(index)'>
                               
                             </button>
